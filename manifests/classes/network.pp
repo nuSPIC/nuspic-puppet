@@ -68,7 +68,7 @@ class network::iptables {
         ensure => 'file',
         mode => '0600',
         notify => Service['iptables'],
-        source => '${infra_files}/sysconfig/iptables',
+        source => "${infra_files}/sysconfig/iptables",
     }
 
 }
