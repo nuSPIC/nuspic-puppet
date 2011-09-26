@@ -18,6 +18,19 @@ class services::packages {
 
 }
 
+class services::puppet {
+
+    package { 'puppet' :
+        ensure => 'present',
+    }
+
+    service { 'puppet' :
+        enable => 'false',
+        ensure => 'stopped',
+    }
+
+}
+
 #
 # Services that should be enabled by default
 #

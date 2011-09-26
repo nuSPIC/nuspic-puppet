@@ -16,8 +16,8 @@ node 'nuspic.g-node.org' {
 
     include services::disabled
     include services::packages
-#
-#    include puppet::client
+
+    include services::puppet
 
     include openssh
     include openssh::install::xauth
