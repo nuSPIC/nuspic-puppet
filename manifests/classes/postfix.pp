@@ -45,10 +45,6 @@ class postfix::params {
         $mynetworks = $postfix::settings['mynetworks']
     }
 
-    if 'relayhost' in $keys {
-        $relayhost = $postfix::settings['relayhost']
-    }
-
     $aliases = [
         { 'user' => 'zaytsev', 'recipient' => 'yury.zaytsev@bcf.uni-freiburg.de', },
         { 'user' => 'root', 'recipient' => 'zaytsev', },

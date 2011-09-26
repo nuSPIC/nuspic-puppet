@@ -23,7 +23,13 @@ node 'nuspic.g-node.org' {
     include openssh
     include openssh::install::xauth
 
-    include postfix
+    include class { 'postfix':
+        settings => {
+            inet_interfaces => '',
+            mydestination => '',
+            mynetworks => '',
+        },
+    }
 
 }
 
