@@ -13,6 +13,22 @@ class postfix::params {
         fail('This class requires settings to be passed!')
     }
 
+    case "$operatingsystem" {
+        /RedHat|Scientific|Fedora/: {
+            $packages = [
+                'postfix',
+                'mailx',
+            ]
+        }
+        /Debian|Ubuntu/: {
+            $packages = [
+                'postfix',
+                'bsd-mailx',
+            ]
+        }
+        default: { fail('Unsupported operating system') }
+    }
+
     $keys = keys($postfix::settings)
 
     if 'inet_interfaces' in $keys {
@@ -53,7 +69,7 @@ class postfix::params {
 }
 
 class postfix::install {
-    package { 'postfix':
+    package { $postfix::params::packages :
         ensure => 'present',
     }
 }
