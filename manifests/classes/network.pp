@@ -72,3 +72,15 @@ class network::iptables {
     }
 
 }
+
+#
+# Default hosts file
+#
+class network::hosts {
+
+    file { '/etc/hosts':
+        ensure => 'file',
+        source => "${infra_files}/hosts",
+    }
+
+}
