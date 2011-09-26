@@ -8,8 +8,9 @@ node 'nuspic.g-node.org' {
 
     include yum::repos
 
-    include network::ipv6::disable
+    include network::hosts
     include network::iptables
+    include network::ipv6::disable
 
     include services::ntpd
 
