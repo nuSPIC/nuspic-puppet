@@ -14,9 +14,8 @@ node 'nuspic.g-node.org' {
 
     include services::ntpd
 
-#    include services::disabled
-#    include services::git
-#    include services::logwatch
+    include services::disabled
+    include services::packages
 #
 #    include puppet::client
 
