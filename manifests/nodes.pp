@@ -19,9 +19,9 @@ node 'nuspic.g-node.org' {
 #    include services::logwatch
 #
 #    include puppet::client
-#
-#    include openssh
-#    include openssh::install::xauth
+
+    include openssh
+    include openssh::install::xauth
 
 #    class { 'postfix':
 #        settings => {
