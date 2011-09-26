@@ -11,6 +11,8 @@ node 'nuspic.g-node.org' {
     include network::ipv6::disable
     include network::iptables
 
+    include services::ntpd
+
 #    include services::disabled
 #    include services::git
 #    include services::logwatch
