@@ -1,0 +1,5 @@
+nuSPIC Puppet Repository
+========================
+
+This repository contains Puppet configuration for internal nuSPIC servers.
+
