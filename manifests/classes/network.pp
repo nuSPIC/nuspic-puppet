@@ -48,3 +48,27 @@ class network::ipv6::disable {
     }
 
 }
+
+#
+# Distribute default firewall settings
+#
+class network::iptables {
+
+    package { 'iptables':
+        ensure => 'present',
+    }
+
+    service { 'iptables':
+        enable => 'true',
+        ensure => 'running',
+        require => Package['iptables'],
+    }
+
+    file { '/etc/sysconfig/iptables':
+        ensure => 'file',
+        mode => '0600',
+        notify => Service['iptables'],
+        source => '${infra_files}/sysconfig/iptables',
+    }
+
+}

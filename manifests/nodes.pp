@@ -1,5 +1,6 @@
 # ZYV
 
+$infra_files = '/etc/puppet/files'
 $infra_path = '/srv/infra'
 $infra_config = '/opt/config'
 
@@ -8,10 +9,10 @@ node 'nuspic.g-node.org' {
     include yum::repos
 
     include network::ipv6::disable
+    include network::iptables
 
 #    include services::disabled
 #    include services::git
-#    include services::iptables
 #    include services::logwatch
 #
 #    include puppet::client
