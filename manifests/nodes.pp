@@ -23,15 +23,7 @@ node 'nuspic.g-node.org' {
     include openssh
     include openssh::install::xauth
 
-#    class { 'postfix':
-#        settings => {
-#            mydomain => $domain,
-#            mydestination => $domain,
-#            inet_interfaces => $infra_address,
-#            mynetworks => "${infra_subnet} ${libvirt_subnet}",
-#            relayhost => $infra_relayhost,
-#        },
-#    }
+    include postfix
 
 }
 
