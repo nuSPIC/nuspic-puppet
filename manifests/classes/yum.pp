@@ -17,7 +17,7 @@ class yum::local {
         descr => 'Red Hat Enterprise Linux $releasever - Local packages (ZYV)',
         enabled => '1',
         gpgcheck => '0',
-        priority => $yum::priorities::params::prio_local,
+        priority => $yum::priorities::params::prio_system,
     }
 
 }
@@ -38,7 +38,7 @@ class yum::priorities {
 
 class yum::priorities::params {
 
-    $prio_local = '40'
+    $prio_high = '40'
     $prio_system = '50'
     $prio_addon = '60'
 
