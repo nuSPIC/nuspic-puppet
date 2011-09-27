@@ -56,6 +56,7 @@ class yum::autoupdate::install {
 
 class yum::autoupdate::config {
 
+    # Use yum-cron in the future! (available for both RHEL and SL)
     case "$operatingsystem" {
         /Scientific/: {
             file { '/etc/sysconfig/yum-autoupdate':
