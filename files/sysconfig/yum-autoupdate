@@ -1,3 +1,5 @@
+# ZYV: hand-written and managed with Puppet
+#
 # This file controls the configuration of yum-autoupdate
 
 # ENABLED
@@ -24,7 +26,7 @@ CONFIGFILE="/etc/yum.conf"
 # EXCLUDE
 #   This is a space deliminated list
 #   Example:  EXCLUDE="kernel* openafs* *-kmdl-* kmod-* *firmware*"
-EXCLUDE="kernel* openafs* *-kmdl-* kmod-* *firmware*"
+EXCLUDE=""
 
 # DEBUG
 #     true - turn on debug mode (be more verbose)

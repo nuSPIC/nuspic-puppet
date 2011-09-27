@@ -28,6 +28,7 @@ class yum::autoupdate {
 
     include yum::autoupdate::params
     include yum::autoupdate::install
+    include yum::autoupdate::config
 
 }
 
@@ -49,6 +50,21 @@ class yum::autoupdate::install {
     package { $yum::autoupdate::params::pkgs :
         ensure => 'present',
         require => Class['yum::autoupdate::params'],
+    }
+
+}
+
+class yum::autoupdate::config {
+
+    case "$operatingsystem" {
+        /Scientific/: {
+            file { '/etc/sysconfig/yum-autoupdate':
+                ensure => 'file',
+                source => "${infra_files}/sysconfig/yum-autoupdate",
+                require => Class['yum::autoupdate::install'],
+            }
+        }
+        default: { fail('Unsupported operating system') }
     }
 
 }
