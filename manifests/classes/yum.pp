@@ -25,13 +25,30 @@ class yum::local {
 }
 
 class yum::autoupdate {
+
+    include yum::autoupdate::params
     include yum::autoupdate::install
+
+}
+
+class yum::autoupdate::params {
+
+    case "$operatingsystem" {
+        /Scientific/: {
+            # This is SL-specific package
+            $pkgs = 'yum-autoupdate'
+        }
+        # RHN for Red Hat and yum-updatesd for Fedora / CentOS
+        default: { fail('Unsupported operating system') }
+    }
+
 }
 
 class yum::autoupdate::install {
 
-    package { 'yum-autoupdate':
+    package { $yum::autoupdate::params::pkgs :
         ensure => 'present',
+        require => Class['yum::autoupdate::params'],
     }
 
 }
