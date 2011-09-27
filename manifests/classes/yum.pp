@@ -2,6 +2,7 @@
 
 class yum {
 
+    include yum::autoupdate
     include yum::priorities
     include yum::local
 
@@ -18,6 +19,19 @@ class yum::local {
         enabled => '1',
         gpgcheck => '0',
         priority => $yum::priorities::params::prio_system,
+        require => Class['yum::priorities'],
+    }
+
+}
+
+class yum::autoupdate {
+    include yum::autoupdate::install
+}
+
+class yum::autoupdate::install {
+
+    package { 'yum-autoupdate':
+        ensure => 'present',
     }
 
 }
@@ -46,7 +60,7 @@ class yum::priorities::params {
 
 class yum::priorities::install {
 
-    package { 'yum-plugin-priorities':
+    package { 'yum-priorities':
         ensure => 'present',
     }
 
