@@ -60,7 +60,7 @@ class yum::priorities::params {
 
 class yum::priorities::install {
 
-    package { 'yum-priorities':
+    package { 'yum-plugin-priorities':
         ensure => 'present',
     }
 
