@@ -3,7 +3,7 @@
 #
 # Local yum repositories for Red Hat based hosts
 #
-class yum::repos {
+class yum::local {
 
     yumrepo { 'rhel-local':
         baseurl => 'file:///srv/infra/repos/rhel-6Server-local',
