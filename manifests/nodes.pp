@@ -20,6 +20,7 @@ node 'nuspic.g-node.org' {
 
     include services::puppet
 
+    include mysql
     include nginx
 
     include openssh
