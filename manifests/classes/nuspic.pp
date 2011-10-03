@@ -70,6 +70,8 @@ class nuspic::config {
 
     file { '/srv/apps/nuspic/.nestrc':
         ensure => 'file',
+        owner => 'nuspic',
+        group => 'nuspic',
         require => Class['nuspic::user'],
         source => "${infra_files}/.nestrc",
     }
