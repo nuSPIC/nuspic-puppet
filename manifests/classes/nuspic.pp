@@ -27,4 +27,24 @@ class nuspic::install {
         ensure => 'present',
     }
 
+    include nuspic::user
+
+}
+
+class nuspic::user {
+
+    user { 'nuspic':
+        comment => 'Puppet-managed nuSPIC webapp account',
+        ensure => 'present',
+        gid => 'nuspic',
+        home => '/srv/apps/nuspic',
+        managehome => 'true',
+        shell => '/bin/nologin',
+    }
+
+    group { 'nuspic':
+        ensure => 'present',
+        system => 'false',
+    }
+
 }
