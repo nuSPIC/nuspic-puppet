@@ -56,3 +56,28 @@ class nuspic::user {
     }
 
 }
+
+class nuspic::config {
+
+    file { '/etc/sysconfig/celeryd':
+        ensure => 'file',
+        notify => Class['nuspic::service'],
+        require => Class['nuspic::install'],
+        source => "${infra_files}/sysconfig/celeryd",
+    }
+
+}
+
+class nuspic::service {
+
+    service { 'celeryd':
+        enable => 'true',
+        ensure => 'running',
+        require => [
+            Class['nuspic::config'],
+            Class['nuspic::install'],
+        ]
+    }
+
+}
+

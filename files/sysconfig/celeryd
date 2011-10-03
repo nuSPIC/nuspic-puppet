@@ -1,13 +1,14 @@
-CELERY_PYTHONPATH="/srv/platform/lib"
+# ZYV
+CELERY_PYTHONPATH=""
 CELERYD_NODES="w1"
 
 # 5 minute hard time limit for tasks + enable events at startup.
-CELERYD_OPTS="--time-limit=300 -E --beat -s /tmp/celerybeat-schedule"
+CELERYD_OPTS="--time-limit=300 -E"
 
 # Full path to the Django project directory.
-CELERYD_CHDIR="/srv/platform/lib/atizo"
+CELERYD_CHDIR="/srv/apps/nuspic"
 
-CELERYD="$CELERYD_CHDIR/manage.py celeryd"
+CELERYD="python $CELERYD_CHDIR/manage.py celeryd"
 CELERYD_LOG_FILE=/var/log/celeryd/celeryd.log
 CELERYD_PID_FILE=/var/run/celeryd/celeryd.pid
 
