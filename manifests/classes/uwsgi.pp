@@ -31,13 +31,13 @@ class uwsgi::config {
 
     file { '/var/log/uwsgi/nuspic':
         ensure => 'directory',
-        user => 'nuspic',
+        owner => 'nuspic',
         group => 'nuspic',
     }
 
     file { '/var/run/uwsgi/nuspic':
         ensure => 'directory',
-        user => 'nuspic',
+        owner => 'nuspic',
         group => 'nuspic',
     }
 
