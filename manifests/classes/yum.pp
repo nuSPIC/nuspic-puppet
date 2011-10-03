@@ -24,6 +24,19 @@ class yum::local {
 
 }
 
+class yum::nginx {
+
+    yumrepo { 'nginx-com':
+        baseurl => 'http://nginx.org/packages/rhel/$releasever/$basearch/',
+        descr => 'nginx.com official binary packages for RHEL (ZYV)',
+        enabled => '1',
+        gpgcheck => '0',
+        priority => $yum::priorities::params::prio_addon,
+        require => Class['yum::priorities'],
+    }
+
+}
+
 class yum::autoupdate {
 
     include yum::autoupdate::params

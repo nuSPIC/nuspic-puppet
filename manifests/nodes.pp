@@ -7,6 +7,7 @@ $infra_config = '/opt/config'
 node 'nuspic.g-node.org' {
 
     include yum
+    include yum::nginx
 
     include network::hosts
     include network::iptables
