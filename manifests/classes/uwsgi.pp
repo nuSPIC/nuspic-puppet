@@ -23,6 +23,12 @@ class uwsgi::install {
 
 class uwsgi::config {
 
+    file { '/etc/uwsgi/vassals/nuspic.ini':
+        ensure => 'file',
+        require => Class['uwsgi::install'],
+        source => "${infra_files}/uwsgi/vassals/nuspic.ini",
+    }
+
 }
 
 class uwsgi::service {
