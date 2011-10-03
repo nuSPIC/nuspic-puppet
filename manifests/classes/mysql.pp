@@ -20,6 +20,7 @@ class mysql::config {
 
     file { '/etc/my.cnf':
         ensure => 'file',
+        notify => Class['mysql::service'],
         require => Class['mysql::install'],
         source => "${infra_files}/my.cnf",
     }
