@@ -22,6 +22,7 @@ node 'nuspic.g-node.org' {
 
     include mysql
     include nginx
+    include uwsgi
 
     include openssh
     include openssh::install::xauth
