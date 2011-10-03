@@ -2,6 +2,7 @@
 
 class nuspic {
 
+    include nuspic::user
     include nuspic::install
 
 }
@@ -26,8 +27,6 @@ class nuspic::install {
     package { $packages_nuspic :
         ensure => 'present',
     }
-
-    include nuspic::user
 
     file { '/srv/apps/nuspic':
         ensure => 'directory',

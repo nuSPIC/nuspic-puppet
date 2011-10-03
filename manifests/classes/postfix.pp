@@ -1,10 +1,12 @@
 # ZYV
 
 class postfix($settings = undef) {
+
     include postfix::params
     include postfix::install
     include postfix::config
     include postfix::service
+
 }
 
 class postfix::params {
