@@ -34,5 +34,7 @@ node 'nuspic.g-node.org' {
         },
     }
 
+    include nuspic
+
 }
 
