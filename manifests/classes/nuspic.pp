@@ -68,6 +68,12 @@ class nuspic::config {
         source => "${infra_files}/sysconfig/celeryd",
     }
 
+    file { '/srv/apps/nuspic/.nestrc':
+        ensure => 'file',
+        require => Class['nuspic::user'],
+        source => "${infra_files}/.nestrc",
+    }
+
 }
 
 class nuspic::service {
