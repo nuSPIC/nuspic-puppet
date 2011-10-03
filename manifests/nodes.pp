@@ -20,6 +20,8 @@ node 'nuspic.g-node.org' {
 
     include services::puppet
 
+    include nginx
+
     include openssh
     include openssh::install::xauth
 
