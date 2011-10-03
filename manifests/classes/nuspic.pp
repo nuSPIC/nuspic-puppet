@@ -29,6 +29,15 @@ class nuspic::install {
 
     include nuspic::user
 
+    file { '/srv/apps/nuspic':
+        ensure => 'directory',
+        mode => '0644',
+        group => 'nuspic',
+        owner => 'nuspic',
+        recurse => 'true',
+        require => Class['nuspic::user'],
+    }
+
 }
 
 class nuspic::user {
