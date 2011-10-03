@@ -16,6 +16,7 @@ class nuspic::install {
         'python-django-celery',
         'python-django-form-utils',
         'python-django-kombu',
+        'python-django-picklefield',
         'python-django-reversion',
         'python-nest',
         'python-networkx',
