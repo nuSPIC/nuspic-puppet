@@ -4,6 +4,8 @@ class nuspic {
 
     include nuspic::user
     include nuspic::install
+    include nuspic::config
+    include nuspic::service
 
 }
 
