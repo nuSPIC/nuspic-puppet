@@ -29,6 +29,18 @@ class uwsgi::config {
         source => "${infra_files}/uwsgi/vassals/nuspic.ini",
     }
 
+    file { '/var/log/uwsgi/nuspic':
+        ensure => 'directory',
+        user => 'nuspic',
+        group => 'nuspic',
+    }
+
+    file { '/var/run/uwsgi/nuspic':
+        ensure => 'directory',
+        user => 'nuspic',
+        group => 'nuspic',
+    }
+
 }
 
 class uwsgi::service {
