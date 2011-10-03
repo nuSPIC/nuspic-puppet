@@ -18,18 +18,24 @@ class nginx::install {
 
 class nginx::config {
 
-    file { '/etc/nginx/nginx.conf':
-        ensure => 'file',
+    File {
         notify => Class['nginx::service'],
         require => Class['nginx::install'],
+    }
+
+    file { '/etc/nginx/nginx.conf':
+        ensure => 'file',
         source => "${infra_files}/nginx/nginx.conf",
     }
 
     file { '/etc/nginx/conf.d/default.conf':
         ensure => 'file',
-        notify => Class['nginx::service'],
-        require => Class['nginx::install'],
         source => "${infra_files}/nginx/conf.d/default.conf",
+    }
+
+    file { '/etc/nginx/conf.d/htpasswd-admin':
+        ensure => 'file',
+        source => "${infra_files}/nginx/conf.d/htpasswd-admin",
     }
 
 }
