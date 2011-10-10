@@ -68,6 +68,12 @@ class nuspic::config {
         source => "${infra_files}/sysconfig/celeryd",
     }
 
+    file { '/etc/logrotate.d/celeryd':
+        ensure => 'file',
+        require => Class['nuspic::install'],
+        source => "${infra_files}/logrotate.d/celeryd",
+    }
+
     file { '/srv/apps/nuspic/.nestrc':
         ensure => 'file',
         owner => 'nuspic',
