@@ -23,10 +23,18 @@ class uwsgi::install {
 
 class uwsgi::config {
 
+    File {
+        require => Class['uwsgi::install'],
+    }
+
     file { '/etc/uwsgi/vassals/nuspic.ini':
         ensure => 'file',
-        require => Class['uwsgi::install'],
         source => "${infra_files}/uwsgi/vassals/nuspic.ini",
+    }
+
+    file { '/etc/logrotate.d/uwsgi':
+        ensure => 'file',
+        source => "${infra_files}/logrotate.d/uwsgi",
     }
 
     file { '/var/log/uwsgi/nuspic':
