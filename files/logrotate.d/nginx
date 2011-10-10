@@ -1,6 +1,6 @@
 /var/log/nginx/*.log {
     compress
-    daily
+    weekly
     delaycompress
     missingok
     notifempty
