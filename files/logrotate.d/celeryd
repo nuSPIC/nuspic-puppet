@@ -1,9 +1,8 @@
 /var/log/celeryd/*.log {
     compress
     copytruncate
-    daily
+    weekly
     delaycompress
     missingok
     notifempty
-    rotate 52
 }
