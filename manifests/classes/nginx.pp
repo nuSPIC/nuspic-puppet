@@ -43,7 +43,6 @@ class nginx::config {
     file { '/etc/logrotate.d/nginx':
         ensure => 'file',
         source => "${infra_files}/logrotate.d/nginx",
-        notify => Class['nginx::service'],
     }
 
     file { '/etc/nginx/misc':
