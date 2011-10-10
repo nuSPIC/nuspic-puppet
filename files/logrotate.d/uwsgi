@@ -1,7 +1,7 @@
 /var/log/uwsgi/emperor.log /var/log/uwsgi/*/log {
     compress
     copytruncate
-    daily
+    weekly
     delaycompress
     missingok
     notifempty
