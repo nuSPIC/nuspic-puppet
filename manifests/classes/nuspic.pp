@@ -7,6 +7,8 @@ class nuspic {
     include nuspic::config
     include nuspic::service
 
+    include nuspic::storage
+
 }
 
 class nuspic::install {
@@ -97,3 +99,44 @@ class nuspic::service {
 
 }
 
+class nuspic::storage {
+
+    $pools = [
+        {
+            'mount' => '/mnt/pool1',
+            'device' => '/dev/vdb',
+        },
+        {
+            'mount' => '/mnt/pool2',
+            'device' => '/dev/vdc',
+        },
+    ]
+
+    make_pools { $pools: ; }
+
+    define make_pools() {
+
+        file { $name['mount'] :
+            ensure => 'directory',
+            group => 'root',
+            mode => '644',
+            owner => 'root',
+            recurse => 'false',
+            selinux_ignore_defaults => 'true',
+        }
+
+        mount { $name['mount'] :
+            atboot => 'true',
+            device => $name['device'],
+            dump => '0',
+            ensure => 'mounted',
+            fstype => 'ext4',
+            options => 'defaults',
+            pass => '0',
+            remounts => 'true',
+            require => File[$name['mount']],
+        }
+
+    }
+
+}
