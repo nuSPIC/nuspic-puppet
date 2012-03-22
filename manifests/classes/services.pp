@@ -10,6 +10,7 @@ class services::packages {
         'logwatch',
         'mc',
         'screen',
+        'patch',
     ]
 
     package { $packages_to_install :
