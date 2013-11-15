@@ -16,7 +16,6 @@ class nuspic::install {
     $packages_nuspic = [
         'MySQL-python',
         'python-anyjson',
-        'python-cjson',
         'python-simplejson',
         'python-django',
         'python-django-bbmarkup',
