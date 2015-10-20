@@ -8,6 +8,7 @@ node 'nuspic.g-node.org' {
 
     include yum
     include yum::nginx
+    include yum::epel
 
     include network::hosts
     include network::iptables

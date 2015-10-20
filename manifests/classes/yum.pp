@@ -37,6 +37,22 @@ class yum::nginx {
 
 }
 
+class yum::epel {
+
+    package { 'epel-release' :
+        ensure => 'present',
+    }
+
+    augeas { 'epel_disable':
+        context => '/files/etc/yum.repos.d',
+        changes => [
+            "set epel.repo/epel/enabled 0",
+        ],
+        require => Package['epel-release'],
+    }
+
+}
+
 class yum::autoupdate {
 
     include yum::autoupdate::params
