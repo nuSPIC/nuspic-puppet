@@ -45,7 +45,7 @@ class yum::epel {
 
     $prio = $yum::priorities::params::prio_addon
 
-    augeas { 'epel_disable':
+    augeas { 'epel-settings':
         context => '/files/etc/yum.repos.d',
         changes => [
             "set epel.repo/epel/enabled 1",
