@@ -19,6 +19,7 @@ class nuspic::install {
         'python-simplejson',
         'python-django',
         'python-django-bbmarkup',
+        'python-dateutil15',  # needed by celery
         'python-django-celery',
         'python-django-form-utils',
         'python-django-kombu',
