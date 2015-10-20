@@ -43,10 +43,13 @@ class yum::epel {
         ensure => 'present',
     }
 
+    $prio = $yum::priorities::params::prio_addon
+
     augeas { 'epel_disable':
         context => '/files/etc/yum.repos.d',
         changes => [
-            "set epel.repo/epel/enabled 0",
+            "set epel.repo/epel/enabled 1",
+            "set epel.repo/epel/priority $prio",
         ],
         require => Package['epel-release'],
     }
