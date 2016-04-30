@@ -21,6 +21,9 @@
 #-A INPUT -m state --state NEW -m tcp -p tcp --source 132.230.0.0/16 --dport 80 -j ACCEPT
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 
+# G-Node Zabbix
+-A INPUT -m state --state NEW -m tcp -p tcp --source monitor.technologit.de --dport 10050 -j ACCEPT
+
 -A INPUT -j REJECT --reject-with icmp-host-prohibited
 -A FORWARD -j REJECT --reject-with icmp-host-prohibited
 COMMIT
