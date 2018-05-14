@@ -27,7 +27,7 @@ class nuspic::install {
         'python-django-reversion',
         'python-nest',
         'python-networkx',
-        'python-recaptcha-client',
+        'python2-recaptcha-client',
     ]
 
     package { $packages_nuspic :
