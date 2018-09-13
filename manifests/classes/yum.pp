@@ -50,6 +50,7 @@ class yum::epel {
         changes => [
             "set epel.repo/epel/enabled 1",
             "set epel.repo/epel/priority $prio",
+            "set epel.repo/epel/exclude uwsgi*",
         ],
         require => Package['epel-release'],
     }
